@@ -1,0 +1,1 @@
+[car](https://www.lispworks.com/documentation/HyperSpec/Body/f_car_c.htm#car) returns the first element from a [[cons]].

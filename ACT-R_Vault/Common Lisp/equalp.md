@@ -1,0 +1,1 @@
+[equalp](https://www.lispworks.com/documentation/HyperSpec/Body/f_equalp.htm#equalp) is a [[function vs macro|function]] that returns true if the two objects passed to it are [[equal]], or if their components are also equalp.

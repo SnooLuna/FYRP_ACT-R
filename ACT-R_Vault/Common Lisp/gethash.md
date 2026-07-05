@@ -1,0 +1,1 @@
+[gethash](https://www.lispworks.com/documentation/HyperSpec/Body/f_gethas.htm#gethash) is an accessor, which takes a key and a hashtable and then looks up the value associated with that key. Besides the value it also returns a boolean representing whether there was an entry found or not, as the value returned is a default value when there was not yet an entry.

@@ -1,0 +1,271 @@
+{
+  "main": {
+    "id": "81363f405225a4db",
+    "type": "split",
+    "children": [
+      {
+        "id": "5a1a914f69717b11",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9440d6eb2c9e8295",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "internal-structures/act-r-chunk-spec.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "act-r-chunk-spec"
+            }
+          },
+          {
+            "id": "88530f376acbb603",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "declarative-memory/merge-chunk-into-dm.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "merge-chunk-into-dm"
+            }
+          },
+          {
+            "id": "28c5dda938272745",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "declarative-memory/merge-chunk-into-dm.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "merge-chunk-into-dm"
+            }
+          },
+          {
+            "id": "af6598a40b1fe82f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "chunks/merge-chunks-fct.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "merge-chunks-fct"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dff97db28d5aeadf",
+    "type": "split",
+    "children": [
+      {
+        "id": "9973b632290286d5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3a44fcabb3dff82b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "7580d79c8a3fccee",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": " ",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f780ce0077fadf80",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 225.5
+  },
+  "right": {
+    "id": "7636222ea43fe745",
+    "type": "split",
+    "children": [
+      {
+        "id": "92a0363409ff94c8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3b79f1d0db56bfdc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "chunks/merge-chunks-fct.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for merge-chunks-fct"
+            }
+          },
+          {
+            "id": "3d56ee2ca5449d81",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "chunks/chunk-equal-test.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from chunk-equal-test"
+            }
+          },
+          {
+            "id": "4ec75923e1d72f03",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "940fb3647ae8ba76",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "faba3901efd29224",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "chunks/chunk-equal-test.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of chunk-equal-test"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "af6598a40b1fe82f",
+  "lastOpenFiles": [
+    "declarative-memory/add-chunk-into-dm.md",
+    "declarative-memory/merge-chunk-into-dm.md",
+    "declarative-memory/hash-chunk-contents.md",
+    "declarative-memory/start-retrieval.md",
+    "Common Lisp/dolist.md",
+    "framework/dispatch-apply.md",
+    "Common Lisp/gethash.md",
+    "Common Lisp/progn.md",
+    "chunks/chunk-equal-test.md",
+    "chunks/copy-chunk-fct.md",
+    "chunks/merge-chunks-fct.md",
+    "clear-buffer-process.md",
+    "My Project Journey.md",
+    "stuff event.md",
+    "Common Lisp/or.md",
+    "Common Lisp/every.md",
+    "img/Pasted image 20260422230924.png",
+    "chunks/chunk-slot-equal.md",
+    "chunks/equal-chunks-fct.md",
+    "chunks/get-chunk.md",
+    "get-chunk-warn.md",
+    "Common Lisp/t.md",
+    "Common Lisp/rest.md",
+    "Common Lisp/nil.md",
+    "Common Lisp/function vs macro.md",
+    "Common Lisp/fbound.md",
+    "Common Lisp/equal.md",
+    "img/Pasted image 20260704014700.png",
+    "img/Pasted image 20260526235419.png",
+    "Untitled.canvas",
+    "Pasted image 20260703112222.png",
+    "Untitled",
+    "buffers",
+    "img",
+    "internal-structures",
+    "Pasted image 20260407223752.png",
+    "Common Lisp",
+    "framework",
+    "chunks",
+    "declarative-memory"
+  ]
+}

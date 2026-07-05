@@ -1,0 +1,3 @@
+[and](https://www.lispworks.com/documentation/HyperSpec/Body/m_and.htm) is a [[function vs macro|macro]] that goes through each of its arguments, and if one of the arguments is [[nil]], it does not continue to the rest of its arguments and returns nil. 
+If none of the arguments are nil, it returns the values returned by the last argument. (If the last argument is a value, it returns the value. If the last argument can be evaluated, it returns what that evaluation returns.)
+The opposite of 'and', is [[or]]

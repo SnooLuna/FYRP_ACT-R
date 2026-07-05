@@ -1,0 +1,1 @@
+[every](https://www.lispworks.com/documentation/HyperSpec/Body/f_everyc.htm#every) is a [[function vs macro|function]] that is similar to the [[function vs macro|macro]] [[and]]. This function returns [[nil]] when any of its arguments is or returns nil, any further arguments are not evaluated.

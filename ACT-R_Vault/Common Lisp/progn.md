@@ -1,0 +1,1 @@
+[progn](https://www.lispworks.com/documentation/HyperSpec/Body/s_progn.htm#progn) is a special operator that evaluates all the forms given to it, but returns only the return value from the last form.

@@ -1,0 +1,1 @@
+[dolist](https://www.lispworks.com/documentation/HyperSpec/Body/m_dolist.htm#dolist) is a macro that simply iterates over the elements of a list.

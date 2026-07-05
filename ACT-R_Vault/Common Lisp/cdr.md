@@ -1,0 +1,1 @@
+[cdr](https://www.lispworks.com/documentation/HyperSpec/Body/f_car_c.htm#cdr) returns the second element from a [[cons]]

@@ -1,0 +1,3 @@
+[or](https://www.lispworks.com/documentation/HyperSpec/Body/m_or.htm) is a [[function vs macro|macro]] that goes through each of its arguments (forms), and if one of the forms is anything other than [[nil]], it does not continue to the rest of its forms and returns the value associated with that form. (If that form is a value, it returns the value. If the form can be evaluated, it returns what that evaluation returns.)
+
+The opposite of 'or', is [[and]]

@@ -1,0 +1,3 @@
+**rest list** _n._ (of a [_function_](http://clhs.lisp.se/Body/26_glo_f.htm#function) having a [_rest parameter_](http://clhs.lisp.se/Body/26_glo_r.htm#rest_parameter)) The [_list_](http://clhs.lisp.se/Body/26_glo_l.htm#list) to which the [_rest parameter_](http://clhs.lisp.se/Body/26_glo_r.htm#rest_parameter) is [_bound_](http://clhs.lisp.se/Body/26_glo_b.htm#bound) on some particular [_call_](http://clhs.lisp.se/Body/26_glo_c.htm#call) to the [_function_](http://clhs.lisp.se/Body/26_glo_f.htm#function).
+
+**rest parameter** _n._ A [_parameter_](http://clhs.lisp.se/Body/26_glo_p.htm#parameter) which was introduced by &rest.
