@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "References.md",
+                "file": "declarative-memory/add-chunk-into-dm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "References"
+              "title": "add-chunk-into-dm"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "References.md",
+                "file": "declarative-memory/add-chunk-into-dm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for References"
+              "title": "Backlinks for add-chunk-into-dm"
             }
           },
           {
@@ -184,43 +184,44 @@
   },
   "active": "b18719e49b5ae4de",
   "lastOpenFiles": [
+    "declarative-memory/hash-chunk-contents.md",
+    "declarative-memory/add-chunk-into-dm.md",
     "README.md",
+    "hooks/example-model.lisp",
+    "hooks/example-hooks.lisp",
+    "hooks",
+    "New folder",
+    "declarative-memory/merge-chunk-into-dm.md",
+    "chunks/copy-chunk-fct.md",
+    "internal-structures/act-r-chunk.md",
+    "internal-structures/act-r-chunk-spec.md",
+    "framework/dispatch-apply.md",
+    "References.md",
+    "declarative-memory/start-retrieval.md",
+    "buffers/clear-buffer-process.md",
     "Common Lisp/cons.md",
     "img/Pasted image 20260704014700.png",
     "stuff event.md",
     "book.md",
-    "References.md",
-    "internal-structures/act-r-chunk-spec.md",
-    "internal-structures/act-r-chunk.md",
-    "framework/dispatch-apply.md",
-    "declarative-memory/start-retrieval.md",
-    "declarative-memory/merge-chunk-into-dm.md",
-    "declarative-memory/hash-chunk-contents.md",
-    "declarative-memory/add-chunk-into-dm.md",
     "Common Lisp/and.md",
     "chunks/merge-chunks-fct.md",
     "chunks/get-chunk.md",
     "chunks/equal-chunks-fct.md",
-    "chunks/copy-chunk-fct.md",
     "Common Lisp/gethash.md",
     "chunks/chunk-slot-equal.md",
     "chunks/chunk-equal-test.md",
     "chunks/chunk-copied-from.md",
-    "buffers/clear-buffer-process.md",
     "buffers",
     "img/Pasted image 20260422230924.png",
     "img/Pasted image 20260526235419.png",
     "make-act-r-chunk.md",
     "Common Lisp/rest.md",
     "Common Lisp/aref.md",
-    "Common Lisp/case.md",
     "internal-structures",
     "img",
     "framework",
     "declarative-memory",
     "Common Lisp",
-    "chunks",
-    "buffers",
     "Untitled.canvas",
     "Pasted image 20260703112222.png",
     "Pasted image 20260407223752.png"

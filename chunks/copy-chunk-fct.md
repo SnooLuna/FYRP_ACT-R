@@ -100,7 +100,7 @@ If there is no such function listed, and we copy from chunk instead, [[dispatch-
                   (dispatch-apply (act-r-chunk-parameter-copy-from-chunk param) chunk-name)))))
 ```
 #### Updating copied-from
-Now that the parameters have been copied over, the name of the old chunk is listed as the chunk this new one has been copied from. #potential
+Now that the parameters have been copied over, the name of the old chunk is listed as the chunk this new one has been copied from.
 ```
           ;; note the original
           (setf (act-r-chunk-copied-from new-chunk) chunk-name)
