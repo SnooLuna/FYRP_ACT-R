@@ -24,8 +24,6 @@ Then, there are checks to make sure these two chunks should be merged. Making us
           (bt:with-recursive-lock-held ((act-r-chunk-lock c2))
 ```
 If the two chunks were retrieved correctly, and they are mergeable (they have the same contents but are not the same object already), the objects are held with a lock so they're not changed by any other code running in parallel.
-
-After this, there are four !!!!!!!!!
 #### Merging the parameters into c1
 The parameters are held into a lock [[dolist]] will execute the following code on all the parameters listed in `chunk-parameters-merge-list`, which is a list of all the parameters that have a merge function.
 ```

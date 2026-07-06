@@ -4,7 +4,7 @@ aliases:
   - external-equal-chunks-fct
 ---
 # Function description
-This function, 
+This function checks if two chunks are equal, but does this by just calling [[chunk-equal-test]]. The difference between these two functions is that this can be called with just the names of the chunks, while chunk-equal-test requires the chunks themselves to be passed.
 # Code
 ```
 (defmacro equal-chunks (chunk-name1 chunk-name2)

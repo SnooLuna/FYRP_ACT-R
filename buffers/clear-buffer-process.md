@@ -1,3 +1,6 @@
+# Function description
+
+# Code
 ```
 (defun clear-buffer-process (buffer bn)
   "This is what happens when the buffer clears.  Done separately because may need to be done from inside something that's already locked and don't want a recursive lock."
