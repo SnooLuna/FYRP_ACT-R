@@ -1,7 +1,3 @@
----
-tags:
-  - small
----
 ([aref](http://clhs.lisp.se/Body/f_aref.htm#aref) array index)
 **aref** _array &rest subscripts_ => _element_
 

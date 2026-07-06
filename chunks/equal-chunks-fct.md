@@ -1,14 +1,18 @@
 ---
-tags:
-  - big
+aliases:
+  - equal-chunks
+  - external-equal-chunks-fct
 ---
-
+# Function description
+This function, 
+# Code
 ```
 (defmacro equal-chunks (chunk-name1 chunk-name2)
   "Return t if two chunks are of the same chunk-type and have equal slot values"
   `(equal-chunks-fct ',chunk-name1 ',chunk-name2))
+```
 
-  
+```
 (defun equal-chunks-fct (chunk-name1 chunk-name2)
   "Return t if two chunks are of the same chunk-type and have equal slot values"
   (let ((c1 (get-chunk-warn chunk-name1))

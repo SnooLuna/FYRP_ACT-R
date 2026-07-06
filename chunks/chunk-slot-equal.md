@@ -1,7 +1,3 @@
----
-tags:
-  - big
----
 ## Function description
 chunk-slot-equal checks whether two chunk slots have equal values. This function is used by passing the values of two slots to the function.
 ## Code

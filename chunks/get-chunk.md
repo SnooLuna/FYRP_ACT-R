@@ -1,11 +1,7 @@
----
-tags:
-  - big
-aliases:
-  - get-chunk-warn
----
-gets the hash for a chunk from its name from the dictionary that is the chunks table in the model. (warn is there cus it gives a warning if the name doesn't exist)
+# Function description
+gets the hash for a chunk from its name from the dictionary that is the chunks table in the model. (warn is in the name of the function because it gives a warning if the chunk doesn't exist)
 
+# Code
 ```
 (defun get-chunk (name)
   "Internal function for getting the chunk structure from its name"

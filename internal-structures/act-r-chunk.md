@@ -1,3 +1,7 @@
+---
+aliases:
+  - make-act-r-chunk
+---
 ```
 (defstruct act-r-chunk
   "The internal structure of a chunk"

@@ -1,85 +1,101 @@
 ## Function description
-Function merges two chunks 
+This function merges two chunks into a single representation
 
 ## Code
-First it gets the structure of both chunks using [[get-chunk|get-chunk-warn]], and saves both chunk representations to c1 and c2.
-with (when (and c1 c2), it makes sure both chunks got retrieved correctly. After this 'when' are 2 'unless' clauses and 'chunk-name1'.
-Then, it will return nil from the function if c1 and c2 are not equal according to [[chunk-equal-test]].  
-If the c1 and c2 are the same object completely, the big part of code is not executed
-
+The function is defined, accepting the names of two chunks to be compared.
 ```
 (defun merge-chunks-fct (chunk-name1 chunk-name2)
-  "Merge two chunks into a single representation"
+```
+First it gets the actual chunks using [[get-chunk|get-chunk-warn]], and saves both of those chunk representations to the local variables `c1` and `c2`.
+```
   (let ((c1 (get-chunk-warn chunk-name1))
         (c2 (get-chunk-warn chunk-name2)))
+```
+with (when (and c1 c2), it makes sure both chunks got retrieved correctly, one of the chunks being [[nil]] will skip the rest of the code.
+```
     (when (and c1 c2)
+```
+Then, there are checks to make sure these two chunks should be merged. Making use of [[chunk-equal-test]], the code will return [[nil]] if the chunks do not have the exact same contents, and if the two chunks are the exact same object already, they do not need merging, so if this is the case the rest of the code is simply skipped. 
+```
       (unless (chunk-equal-test c1 c2)
         (return-from merge-chunks-fct nil))
       (unless (eq c1 c2)
         (bt:with-recursive-lock-held ((act-r-chunk-lock c1))
           (bt:with-recursive-lock-held ((act-r-chunk-lock c2))
 ```
-if the 2 chunks were retrieved correctly and they are not the same object, the objects are held with a lock so they're not changed at the same time.
+If the two chunks were retrieved correctly, and they are mergeable (they have the same contents but are not the same object already), the objects are held with a lock so they're not changed by any other code running in parallel.
 
-## Update parameters for c1 ([[dolist]] 1)
-```          
-            ;; update the parameters for c1
+After this, there are four !!!!!!!!!
+#### Merging the parameters into c1
+The parameters are held into a lock [[dolist]] will execute the following code on all the parameters listed in `chunk-parameters-merge-list`, which is a list of all the parameters that have a merge function.
+```
             (dolist (param (bt:with-lock-held (*chunk-parameters-lock*)
                              *chunk-parameters-merge-list*))
 ```
-For each parameter from the internal list of parameters that have a merge function:
-	set that parameter of c1 to... ([[aref]] means access the array in the first bracket with the index of the second)
+These parameters with a merge function are looked up by index in c1, and that value is going to be set by the code that comes next.
 ```
               (setf (aref (act-r-chunk-parameter-values c1) (act-r-chunk-parameter-index param))
 ```
-[[act-r-chunk-parameter-merge]]?? I can't find this macro :D (same for some of the others that start with act-r, but those I can at least guess)
+`act-r-chunk-parameter-merge` retrieves the merge function associated with this parameter, and [[case]] is used to decide what to do with this function.
 ```
                 (case (act-r-chunk-parameter-merge param)
 ```
-if it matched "second":
-save this parameter of c2 to temporary value v and return this value, unless it is undefined in c2, in which case it returns the default parameter value for that chunk type (I think).
+
+If the merge function matches `second`:
 ```
                   (:second
+```
+save the value of the parameter in c2 that matches the name of the parameter we are currently handling to temporary value v
+```
                    (let ((v (aref (act-r-chunk-parameter-values c2) (act-r-chunk-parameter-index param))))
+```
+If this parameter is undefined in c2, it returns the default parameter value for that chunk type, if it is defined, the parameter that was just retrieved is returned and saved in c1 through the `setf` from earlier. 
+```
                      (if (eq v *chunk-parameter-undefined*)
                          (chunk-parameter-default param chunk-name2)
                          v)))
 ```
-if it matched to "second-if"
-do the same thing as the clause above, but the other way around? first check if it's undefined (if so set default), and then (new) if v is still nil, return the value that is the parameter of c1 instead.
+
+If the merge function matches `second-if`:
 ```
                   (:second-if
+```
+Do the same thing as the `second` clause above, but the other way around. 
+First we again save the value of the parameter we're handling of c2 into a temporary local variable v.
+```
                    (let ((v (aref (act-r-chunk-parameter-values c2) (act-r-chunk-parameter-index param))))
+```
+First check if it's undefined (if so set default), and then if v is not [[nil]], we return the value of v, otherwise return the value of this parameter in c1 instead. This returned value is then set to be the new parameter value in c1 through the `setf` from before the [[case]] started.
+```
                      (when (eq v *chunk-parameter-undefined*)
                        (setf v (chunk-parameter-default param chunk-name2)))
                      (if v
                          v
                        (aref (act-r-chunk-parameter-values c1) (act-r-chunk-parameter-index param)))))
 ```
-the default case that happens if the above don't:
-... I don't understand this one.
+the default case that happens if the merge was neither `second` nor `second-if`:
+Use [[dispatch-apply]] to apply the merge function that is associated with this parameter to merge the parameter of chunk 1 and chunk 2.
 ```
                   (t
                    (dispatch-apply (act-r-chunk-parameter-merge param) chunk-name1 chunk-name2)))))                
 ```
 
-## (dolist 2)
-Go through all parameters again
+#### Merging the parameter values into c1
+Go through all parameters again (with a lock to keep things safe), this time taking them from the internal list of parameters that have a merge value function.
 ```
             (dolist (param (bt:with-lock-held (*chunk-parameters-lock*)
                              *chunk-parameters-merge-value-list*))
 ```
-Set the value of that parameter within chunk 1 (again, [[aref]] means get from this () array the thing at this () index) to whatever the next bit is going to return
+Set the value of that parameter within chunk 1 to what the next pieces of code will find for us.
 ```
               (setf (aref (act-r-chunk-parameter-values c1) (act-r-chunk-parameter-index param))
 ```
-first create temp variables c1-val and c2-val that are the values associated with chunk 1 and chunk 2
+first create temp variables c1-val and c2-val that are the values for this parameter associated with chunk 1 and chunk 2
 ```
                 (let ((c1-val (aref (act-r-chunk-parameter-values c1) (act-r-chunk-parameter-index param)))
                       (c2-val (aref (act-r-chunk-parameter-values c2) (act-r-chunk-parameter-index param))))
 ```
-[[dispatch-apply]]  will apply a function to [[rest]] variables 
-the function here is the merge value? and the variables c1-val / c2-val??
+Using [[dispatch-apply]], the merge value function is applied to the values of that parameter for chunk 1 and chunk 2. If either of these values is undefined for that chunk, the default value for that parameter will be passed to the merging function instead.
 ```
                   (dispatch-apply (act-r-chunk-parameter-merge-value param)
                                   (if (eq c1-val *chunk-parameter-undefined*)
@@ -90,9 +106,10 @@ the function here is the merge value? and the variables c1-val / c2-val??
                                     c2-val)))))
 ```
 
-### Parameters for c1 have been updated, now do some cleanup
-wow there's comments here. how nice. I wish there were more.
+#### Chunk 2 has been merged into chunk 1, now chunk 2 needs to be safely removed.
+This part mostly has comments by the author, so I will not add much explanation here.
 
+If one of c1 or c2 was not allowed to be changed, this rule applies to the merged chunk too.
 ```
             ;; If either is immutable then the result should be as well.
             ;; Since c1 will maintain its immutability need to check if c2
@@ -102,6 +119,7 @@ wow there's comments here. how nice. I wish there were more.
               (setf (act-r-chunk-immutable c1) t))
 ```
 
+Any mention of chunk 2 needs to be updated to the mention of chunk 1.
 ```
             ;; For any chunks which had been merged with c2 also remap them
             ;; and indicate them in c1
@@ -136,5 +154,3 @@ wow there's comments here. how nice. I wish there were more.
                     (clrhash (chunk-back-links chunk-name2)))))))))
       chunk-name1)))
 ```
-
-done :D merged.
